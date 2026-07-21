@@ -5,16 +5,17 @@
  * Toutes les requêtes passent par ici
  */
 
+// On démarre la session dès le début
+session_start();
+
 // On charge la connexion à la base de données
 require_once 'config/database.php';
 
 // On récupère l'URL demandée par l'utilisateur
-// Exemple : /login ou /trips/create
 $url = $_GET['url'] ?? '/';
 $url = trim($url, '/');
 
 // On découpe l'URL en parties
-// Exemple : "trips/create" devient ["trips", "create"]
 $parts = explode('/', $url);
 
 // La première partie c'est le controller
@@ -37,7 +38,6 @@ switch ($controllerName) {
         break;
 
     default:
-        // Page non trouvée
         http_response_code(404);
         die('Page non trouvée');
 }
