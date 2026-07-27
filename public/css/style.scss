@@ -1,1 +1,42 @@
+// ============================================
+// Variables Bootstrap — palette imposée
+// ============================================
 
+// On redéfinit les couleurs Bootstrap avec notre palette
+$primary:   #0074c7;
+$secondary: #384050;
+$success:   #82b864;
+$danger:    #cd2c2e;
+$dark:      #00497c;
+$light:     #f1f8fc;
+
+// On importe Bootstrap APRES nos variables
+// Comme ça Bootstrap utilise nos couleurs
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// ============================================
+// Styles personnalisés
+// ============================================
+
+body {
+    background-color: $light;
+}
+
+.navbar {
+    background-color: $dark !important;
+}
+
+.table thead {
+    background-color: $secondary;
+    color: white;
+}
+
+.btn-dark {
+    background-color: $dark;
+    border-color: $dark;
+
+    &:hover {
+        background-color: $primary;
+        border-color: $primary;
+    }
+}
