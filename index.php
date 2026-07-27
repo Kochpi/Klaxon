@@ -36,6 +36,11 @@ switch ($controllerName) {
         require_once 'app/controllers/AuthController.php';
         $controller = new AuthController();
         break;
+    
+    case 'trips':
+    require_once 'app/controllers/TripController.php';
+    $controller = new TripController();
+    break;
 
     default:
         http_response_code(404);

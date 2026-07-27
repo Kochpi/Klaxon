@@ -49,4 +49,71 @@ class TripModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+     /**
+     * Récupère toutes les agences
+     */
+    public function getAllAgencies(): array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM agencies ORDER BY nom ASC");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Crée un nouveau trajet
+     */
+    public function createTrip(array $data): void
+    {
+        $stmt = $this->db->prepare("
+            INSERT INTO trips 
+                (agency_depart_id, agency_arrivee_id, date_depart, date_arrivee, places_total, places_dispo, user_id)
+            VALUES 
+                (:agency_depart_id, :agency_arrivee_id, :date_depart, :date_arrivee, :places_total, :places_dispo, :user_id)
+        ");
+
+        $stmt->execute($data);
+    }
+    /**
+     * Récupère un trajet par son id
+     */
+    public function getTripById(int $id): array|false
+    {
+        $stmt = $this->db->prepare("SELECT * FROM trips WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Modifie un trajet existant
+     */
+    public function updateTrip(array $data): void
+    {
+        $stmt = $this->db->prepare("
+            UPDATE trips SET
+                agency_depart_id  = :agency_depart_id,
+                agency_arrivee_id = :agency_arrivee_id,
+                date_depart       = :date_depart,
+                date_arrivee      = :date_arrivee,
+                places_total      = :places_total,
+                places_dispo      = :places_dispo
+            WHERE id = :id
+            AND user_id = :user_id
+        ");
+
+        $stmt->execute($data);
+    }
+
+    /**
+     * Supprime un trajet
+     */
+    public function deleteTrip(int $id, int $userId): void
+    {
+        $stmt = $this->db->prepare("
+            DELETE FROM trips 
+            WHERE id = :id 
+            AND user_id = :user_id
+        ");
+
+        $stmt->execute([':id' => $id, ':user_id' => $userId]);
+    }
 }
