@@ -42,6 +42,11 @@ switch ($controllerName) {
     $controller = new TripController();
     break;
 
+    case 'admin':
+    require_once 'app/controllers/AdminController.php';
+    $controller = new AdminController();
+    break;
+
     default:
         http_response_code(404);
         die('Page non trouvée');

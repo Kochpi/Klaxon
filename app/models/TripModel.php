@@ -116,4 +116,39 @@ class TripModel
 
         $stmt->execute([':id' => $id, ':user_id' => $userId]);
     }
+    /**
+     * Récupère tous les trajets (pour l'admin)
+     */
+    public function getAllTrips(): array
+    {
+        $stmt = $this->db->prepare("
+            SELECT 
+                trips.id,
+                trips.date_depart,
+                trips.date_arrivee,
+                trips.places_total,
+                trips.places_dispo,
+                depart.nom  AS ville_depart,
+                arrivee.nom AS ville_arrivee,
+                users.nom   AS conducteur_nom,
+                users.prenom AS conducteur_prenom
+            FROM trips
+            JOIN agencies AS depart  ON trips.agency_depart_id  = depart.id
+            JOIN agencies AS arrivee ON trips.agency_arrivee_id = arrivee.id
+            JOIN users               ON trips.user_id           = users.id
+            ORDER BY trips.date_depart ASC
+        ");
+
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Supprime un trajet (admin — sans vérifier le user_id)
+     */
+    public function adminDeleteTrip(int $id): void
+    {
+        $stmt = $this->db->prepare("DELETE FROM trips WHERE id = :id");
+        $stmt->execute([':id' => $id]);
+    }
 }
