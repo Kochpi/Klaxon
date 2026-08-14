@@ -1,3 +1,6 @@
+
+<!-- Front de la liste des agences admin -->
+
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Liste des agences</h2>
     <a href="/klaxon/admin/agencyForm" class="btn btn-dark">+ Ajouter une agence</a>

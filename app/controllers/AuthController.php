@@ -40,13 +40,12 @@ class AuthController
                 exit;
 
             } else {
-                // Mauvais identifiants
+                // Erreur 
                 $error = 'Email ou mot de passe incorrect';
                 require_once 'app/views/auth/login.php';
             }
 
         } else {
-            // Formulaire pas encore envoyé — on affiche juste la page
             require_once 'app/views/auth/login.php';
         }
     }

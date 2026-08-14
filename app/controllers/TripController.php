@@ -33,7 +33,7 @@ class TripController
             $dateArrivee     = $_POST['date_arrivee'] ?? '';
             $placesTotal     = $_POST['places_total'] ?? '';
 
-            // Contrôles de cohérence
+            // Contrôles de cohérence des trajets heure dates places
             $errors = [];
 
             if ($agencyDepartId === $agencyArriveeId) {
@@ -92,7 +92,7 @@ class TripController
         // On récupère le trajet
         $trip = $tripModel->getTripById($id);
 
-        // Vérification que le trajet existe et appartient à l'utilisateur
+        // Vérifie que le trajet existe et appartient à l'utilisateur
         if (!$trip || $trip['user_id'] != $_SESSION['user_id']) {
             http_response_code(403);
             die('Accès interdit');

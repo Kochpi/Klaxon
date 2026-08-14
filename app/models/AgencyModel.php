@@ -24,7 +24,7 @@ class AgencyModel
     }
 
     /**
-     * Récupère une agence par son id
+     * Récupère une agence by id
      */
     public function getAgencyById(int $id): array|false
     {
@@ -34,7 +34,7 @@ class AgencyModel
     }
 
     /**
-     * Crée une nouvelle agence
+     * Create une nouvelle agence
      */
     public function createAgency(string $nom): void
     {

@@ -60,7 +60,7 @@ class TripModel
     }
 
     /**
-     * Crée un nouveau trajet
+     * Create un nouveau trajet
      */
     public function createTrip(array $data): void
     {
@@ -74,7 +74,7 @@ class TripModel
         $stmt->execute($data);
     }
     /**
-     * Récupère un trajet par son id
+     * Get un trajet par son id
      */
     public function getTripById(int $id): array|false
     {

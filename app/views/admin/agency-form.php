@@ -1,3 +1,4 @@
+<!-- Front des agences admin -->
 <h2 class="mb-4"><?= $agency ? 'Modifier une agence' : 'Créer une agence' ?></h2>
 
 <?php if (!empty($errors)) : ?>

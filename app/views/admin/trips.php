@@ -1,3 +1,4 @@
+<!-- Front des trajets admin -->
 <h2 class="mb-4">Liste des trajets</h2>
 
 <table class="table table-striped table-hover">

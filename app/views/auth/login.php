@@ -1,3 +1,4 @@
+<!-- Front de la page d'authentification -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>

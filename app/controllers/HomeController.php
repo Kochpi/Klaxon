@@ -6,7 +6,7 @@
 class HomeController
 {
     /**
-     * Action par défaut — affiche la page d'accueil
+     *affiche la page d'accueil
      */
     public function index(): void
     {
@@ -17,7 +17,7 @@ class HomeController
         // On récupère les trajets disponibles
         $trips = $tripModel->getAvailableTrips();
 
-        // On capture le contenu de la vue
+        // On capture le contenu de la view
         ob_start();
         require_once 'app/views/home/index.php';
         $content = ob_get_clean();

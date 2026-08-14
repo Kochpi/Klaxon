@@ -1,3 +1,4 @@
+<!-- Front de la page d'ccuei avec les trajets proposés -->
 <h2 class="mb-4">Trajets proposés</h2>
 
 <?php if (empty($trips)) : ?>

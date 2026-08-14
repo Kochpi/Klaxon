@@ -1,3 +1,4 @@
+<!-- Front de la page Modifier un trajet -->
 <h2 class="mb-4">Modifier un trajet</h2>
 
 <?php if (!empty($errors)) : ?>

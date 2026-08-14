@@ -1,3 +1,4 @@
+<!-- Front de la page créer un trajet -->
 <h2 class="mb-4">Créer un trajet</h2>
 
 <?php if (!empty($errors)) : ?>
